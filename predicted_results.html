@@ -45,13 +45,33 @@
 					  <div class="container">
 					    <h3>Customer Details</h3>
 					    <br>
-					    <ul class="list-group list-group-flush">
-						  <li class="list-group-item">Cras justo odio</li>
-						  <li class="list-group-item">Dapibus ac facilisis in</li>
-						  <li class="list-group-item">Morbi leo risus</li>
-						  <li class="list-group-item">Porta ac consectetur ac</li>
-						  <li class="list-group-item">Vestibulum at eros</li>
-						</ul>
+<!--					    <ul class="list-group list-group-flush">-->
+<!--						  <li class="list-group-item">Customer ID: &nbsp;&nbsp;&nbsp; {{array_details[1]}} </li>-->
+<!--                          <li class="list-group-item">Age: &nbsp;&nbsp;&nbsp; {{array_details[2]}}</li>-->
+<!--						  <li class="list-group-item">Monthly Income: &nbsp;&nbsp;&nbsp; {{array_details[3]}} </li>-->
+<!--						  <li class="list-group-item">Credit Card Balance: &nbsp;&nbsp;&nbsp; {{array_details[4]}}</li>-->
+
+<!--&lt;!&ndash;						  <li class="list-group-item">Vestibulum at eros</li>&ndash;&gt;-->
+<!--						</ul>-->
+
+                          <table class="table">
+					    	<tr>
+					    		<td>Customer ID</td>
+					    		<td>{{array_details[1]}}</td>
+					    	</tr>
+					    	<tr>
+					    		<td>Age</td>
+					    		<td>{{array_details[2]}}</td>
+					    	</tr>
+					    	<tr>
+					    		<td>Monthly Income</td>
+					    		<td>{{array_details[3]}}</td>
+					    	</tr>
+					    	<tr>
+					    		<td>Credit Card Balance:</td>
+					    		<td>{{array_details[4]}}</td>
+					    	</tr>
+					    </table>
 					  </div>
 					</div>
 				</div>
@@ -78,7 +98,24 @@
 								        </button>
 								      </div>
 								      <div class="modal-body">
-								        ...
+								        <table class="table">
+					    				<tr>
+					    					<td>Mortgage</td>
+					    					<td>{{score}}</td>
+					    				</tr>
+<!--					    				<tr>-->
+<!--					    				<td>Age</td>-->
+<!--					    				<td>{{array_details[2]}}</td>-->
+<!--					    				</tr>-->
+<!--					    				<tr>-->
+<!--					    					<td>Monthly Income</td>-->
+<!--					    					<td>{{array_details[3]}}</td>-->
+<!--					    				</tr>-->
+<!--					    				<tr>-->
+<!--					    					<td>Credit Card Balance:</td>-->
+<!--					    					<td>{{array_details[4]}}</td>-->
+<!--					    				</tr>-->
+					    				</table>
 								      </div>
 								      <div class="modal-footer">
 								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -89,13 +126,12 @@
 					  		</div>
 					  	</div>
 					    <br>
-					    <ul class="list-group list-group-flush">
-						  <li class="list-group-item">Cras justo odio</li>
-						  <li class="list-group-item">Dapibus ac facilisis in</li>
-						  <li class="list-group-item">Morbi leo risus</li>
-						  <li class="list-group-item">Porta ac consectetur ac</li>
-						  <li class="list-group-item">Vestibulum at eros</li>
-						</ul>
+					    <table class="table">
+					    	<tr>
+					    		<td>Mortgage</td>
+					    		<td>{{mortgage}}</td>
+					    	</tr>
+					    </table>
 					  </div>
 					</div>
 				</div>

@@ -1,10 +1,21 @@
+import csv
+
 import pandas as pd
 import numpy as np
 from flask import Flask, request, render_template, url_for, redirect, send_file, make_response
 from flask import send_from_directory, current_app
 from werkzeug.utils import secure_filename
+import os
+import pickle
+import sklearn
+
+
+UPLOAD_FOLDER = 'C:/Users/rbs/PycharmProjects/recommendation_sys/folder'
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'csv'])
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 
 @app.route("/")
@@ -24,7 +35,29 @@ def train_model():
 
 @app.route("/predicted_results", methods=['GET', 'POST'])
 def predicted_results():
-    return render_template("predicted_results.html")
+    x_test = pd.read_csv(os.path.join(app.config['UPLOAD_FOLDER'], 'x_test.csv'))
+    if request.method == 'POST':
+        customer_id = request.form['CustomerID']
+
+    csv_file = csv.reader(open(os.path.join(app.config['UPLOAD_FOLDER'], 'x_test.csv')), delimiter=",")
+
+    # fetching details of customer from x_test
+    for row in csv_file:
+        if customer_id == row[1]:
+            print(row)
+            break
+
+    data = row[1:]
+    data = list(map(int, data))
+    print(data)
+    model = pickle.load(open('logistics_regression_model_mortgage.sav', 'rb'))
+    predicted_output = model.predict_proba([data])[:, 1]
+    print(predicted_output)
+    predicted_output = round(predicted_output[0]*100, 2)
+    predicted_mortgage = (predicted_output >= 80.00)
+    # print(predicted_output)
+    return render_template("predicted_results.html", array_details=row, mortgage=predicted_mortgage,
+                           score=predicted_output)
 
 
 @app.route('/upload_file', methods=['POST'])

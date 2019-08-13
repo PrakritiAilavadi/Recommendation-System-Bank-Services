@@ -41,10 +41,10 @@
 			<div class="row mt-4">
 				<div class="offset-lg-4"></div>
 				<div class="col-lg-4">
-					<form action="http://localhost:5000/predicted_results" method="GET">
+					<form action="http://localhost:5000/predicted_results" method="POST">
 					  <div class="form-group">
 					    <label for="CustomerID">Customer Id</label>
-					    <input type="text" pattern="\d*" maxlength="15" class="form-control form-control-lg" id="CustomerID" placeholder="Enter Customer Id" required>
+					    <input type="text" pattern="\d*" maxlength="15" class="form-control form-control-lg" id="CustomerID" name="CustomerID" placeholder="Enter Customer Id" required>
 					  </div>
 					  <button type="submit" class="btn btn-block btn-dark btn-lg" style="margin-top:30px;">Submit</button>
 					</form>
